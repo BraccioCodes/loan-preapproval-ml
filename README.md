@@ -2,7 +2,7 @@
 
 ## 🔎 Project Overview
 
-A classification model to predict whether a loan application should be approved or rejected based on various financial and demographic features. First I tried using logistic regression as a basic model, and then moved onto XGBoost, a state-of-the-arm boosting method. This will be the final project to complete my data analytics certificate, and the motivation behind it was my experience working as a bank teller and gauging people's eligibility for a loan on a daily basis.
+A classification model to predict whether a loan application should be approved or rejected based on various financial and demographic features. First I tried using logistic regression as a basic model, and then moved onto XGBoost, a state-of-the-art boosting method. This will be the final project to complete my data analytics certificate, and the motivation behind it was my experience working as a bank teller and gauging people's eligibility for a loan on a daily basis.
 
 ---
 
@@ -37,17 +37,17 @@ Lenders want to reduce risk by only approving applicants who are most likely to 
 
 ## 🧠 Preprocessing and EDA
 
-I plotted the class balance for our target variable, **loan status**, and found that my dataset was fairly imbalanced, with 2656 records belonging to the positive (**Approved**) class, and 1613 belonging to the negative (**Rejected**) class. I also looked for null values and duplicate values and found none. Outlier detection was performed by defining a function that uses the IQR method, and percentage of outliers in numerical columns was extremely low, so I left them in the dataset. Finally, categorical data was encoded binarily using mapping and quantitative features were scaled using StandardScaler.
+I plotted the class balance for our target variable, **loan status**, and found that my dataset was fairly imbalanced, with 2656 records belonging to the positive (**Approved**) class and 1613 belonging to the negative (**Rejected**) class. I also looked for null values and duplicate values and found none. Outlier detection was performed by defining a function that uses the IQR method, and percentage of outliers in numerical columns was extremely low, so I left them in the dataset. Finally, categorical data was encoded binarily using mapping and quantitative features were scaled using StandardScaler.
 
 ## 📌 Feature selection
 
-After a correlation analysis was conducted, it was concluded that by far credit score is the most important feature for our model's prospective prediction power, with a correlation of 77% with loan status. Almost every feature except for loan ID, number of dependents, and graduate status was kept. This decision boils down to the feature correlation analysis as well as business intelligence and my interpretation of the lending services provided at my current institution.
+After a correlation analysis was conducted, it was concluded that by far credit score is the most important feature for our model's prospective prediction power, with a correlation of 77% with loan status. Almost every feature except for loan ID, number of dependents, and graduate status was kept. This decision came down to the feature correlation analysis as well as business intelligence and my interpretation of the lending services provided at my current institution.
 
 ---
 
 ## 🧩 Model Testing & Evaluation
 
-Training and testing split was 80/20, and it was also stratified to account for the target variable class imbalance. Also cross-validation on both models was run with StratifiedKFold at 5 splits.
+Training and testing split was 80/20, and it was also stratified to account for the target variable class imbalance. Cross-validation was also run on both models using StratifiedKFold at 5 splits.
 
 **Logistic Regression**
 
@@ -55,13 +55,13 @@ For this model, I picked 1000 iterations, and I achieved 92% accuracy with 22 fa
 
 **XGBoost**
 
-Since this was my first time dabbling into XGBoost, I used ChatGPT as support when creating this model. RandomizedSearchCV was used to find the best hyperparameters again with the previously stated StratifiedKFold for cross-validation. Once again I also adjusted the threshold to prioritize precision and after evaluating, this classifier had 98% accuracy, only 7 FN's and 7 FP's, and a precision score of 99% for the positive class. The ROC-AUC score was raised from 93% to 98%, so in terms of improvement for a loan approval prediction model, this boosting method performed significantly better than the basic logistic regression model, as expected.
+Since this was my first time dabbling into XGBoost, I used ChatGPT as support when creating this model. RandomizedSearchCV was used to find the best hyperparameters again with the previously stated StratifiedKFold for cross-validation. Once again I also adjusted the threshold to prioritize precision and after evaluating, this classifier had 98% accuracy, only 7 FNs and 7 FPs, and a precision score of 99% for the positive class. The ROC-AUC score was raised from 93% to 98%, so in terms of improvement for a loan approval prediction model, this boosting method performed significantly better than the basic logistic regression model, as expected.
 
 ===
 
 ## 🏁 Conclusion
 
-This project showcases the ML workflow, from defining the problem and collecting the data, all the way to model training, testing, and tuning. Logistic regression was used at the beginning to get a baseline model, and then I moved onto a stronger, better model to increase performance. By adjusting the threshold for the tradeoff between precision and recall to minimize false negatives, these models were aligned with real-world lender goals: reducing false approvals as well as financial risk.
+This project showcases the ML workflow, from defining the problem and collecting the data, all the way to model training, testing, and tuning. Logistic regression was used at the beginning to get a baseline model, and then I moved onto a stronger, better model to increase performance. By adjusting the threshold for the tradeoff between precision and recall to minimize false positives, these models were aligned with real-world lender goals: reducing false approvals as well as financial risk.
 
 Regarding the XGBoost classifier, with a final accuracy of 98%, precision of 99%, and a ROC-AUC score of 98%, this model provided highly reliable approval predictions. These results highlight how strategic feature selection & engineering, hyperparameter search & cross-validation, and ensemble method modeling can produce a classifier ready to make a real-world impact in the financial industry.
 
