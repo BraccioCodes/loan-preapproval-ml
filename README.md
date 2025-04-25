@@ -55,7 +55,7 @@ For this model, I picked 1000 iterations, and I achieved 92% accuracy with 22 fa
 
 **XGBoost**
 
-Since this was my first time dabbling into XGBoost, I used ChatGPT as support when creating this model. RandomizedSearchCV was used to find the best hyperparameters again with the previously stated StratifiedKFold for cross-validation. Once again I also adjusted the threshold to prioritize precision and after evaluating, this classifier had 98% accuracy, only 7 FNs and 7 FPs, and a precision score of 99% for the positive class. The ROC-AUC score was raised from 93% to 98%, so in terms of improvement for a loan approval prediction model, this boosting method performed significantly better than the basic logistic regression model, as expected.
+Since this was my first time dabbling into XGBoost, I used ChatGPT as support when creating this model. RandomizedSearchCV was used to find the best hyperparameters again with the previously stated StratifiedKFold for cross-validation. Once again I also adjusted the threshold to prioritize precision and after evaluating, this classifier had 98% accuracy, only 8 FPs and 7 FNs, and a precision score of 98% for the positive class. The ROC-AUC score was raised from 93% to 98%, so in terms of improvement for a loan approval prediction model, this boosting method performed significantly better than the basic logistic regression model, as expected.
 
 ===
 
@@ -63,5 +63,5 @@ Since this was my first time dabbling into XGBoost, I used ChatGPT as support wh
 
 This project showcases the ML workflow, from defining the problem and collecting the data, all the way to model training, testing, and tuning. Logistic regression was used at the beginning to get a baseline model, and then I moved onto a stronger, better model to increase performance. By adjusting the threshold for the tradeoff between precision and recall to minimize false positives, these models were aligned with real-world lender goals: reducing false approvals as well as financial risk.
 
-Regarding the XGBoost classifier, with a final accuracy of 98%, precision of 99%, and a ROC-AUC score of 98%, this model provided highly reliable approval predictions. These results highlight how strategic feature selection & engineering, hyperparameter search & cross-validation, and ensemble method modeling can produce a classifier ready to make a real-world impact in the financial industry.
+Regarding the XGBoost classifier, with a final accuracy of 98%, precision of 98%, and a ROC-AUC score of 98%, this model provided highly reliable approval predictions. These results highlight how strategic feature selection & engineering, hyperparameter search & cross-validation, and ensemble method modeling can produce a classifier ready to make a real-world impact in the financial industry.
 
