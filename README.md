@@ -62,7 +62,7 @@ For this model, I picked 1000 iterations, and I achieved 92% accuracy with 22 fa
 
 **XGBoost**
 
-Since this was my first time dabbling into XGBoost, I used ChatGPT as support when creating this model. RandomizedSearchCV was used to find the best hyperparameters again with the previously stated StratifiedKFold for cross-validation. Once again I also adjusted the threshold to prioritize precision and after evaluating, this classifier had 98% accuracy, only 8 FPs and 7 FNs, and a precision score of 98% for the positive class. The ROC-AUC score was raised from 93% to 98%, so in terms of improvement for a loan approval prediction model, this boosting method performed significantly better than the basic logistic regression model, as expected.
+Since this was my first time dabbling into XGBoost, I used ChatGPT 4o as support when creating this model and defining the paremeter grid. RandomizedSearchCV was used to find the best hyperparameters again with the previously stated StratifiedKFold for cross-validation. Once again I also adjusted the threshold to prioritize precision and after evaluating, this classifier had 98% accuracy, only 8 FPs and 7 FNs, and a precision score of 98% for the positive class. The ROC-AUC score was raised from 93% to 98%, so in terms of improvement for a loan approval prediction model, this boosting method performed significantly better than the basic logistic regression model, as expected.
 
 ![matrix_xgb](matrix_xgb.png)
 ![roc_xgb](roc_xgb.png)
